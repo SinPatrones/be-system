@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const config = require('../config');
 const user = require('./components/user/network');
@@ -9,7 +10,7 @@ const errors = require('../network/errors');
 const app = express();
 
 app.use(bodyParser.json());
-
+app.use(cors());
 
 // Routers
 app.use('/api/user', user);

@@ -22,11 +22,16 @@ module.exports = function (injectedStore) {
   }
 
   async function signup(data) {
-    const newUser = {
-      ...data,
-      password: await bcrypt.hashSync(data.password, 7),
+    try {
+      const newUser = {
+        ...data,
+        password: await bcrypt.hash(data.password, 5),
+      }
+      return await store.save(TABLE, newUser);
+    } catch (e) {
+      console.log({error: e});
+      return null;
     }
-    return await store.save(TABLE, newUser);
   }
 
   return {
