@@ -22,6 +22,7 @@ model Client{
   clientId      Int @id @default(autoincrement())
   name          String
   lastname      String
+  email         String
   address       String
   phone         String
   createdAt     DateTime @db.Date @default(now())

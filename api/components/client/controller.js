@@ -1,12 +1,10 @@
-const auth = require('../auth');
-
-const TABLE = 'User';
+const TABLE = 'Client';
 
 module.exports = function (injectedStore) {
   let store = injectedStore;
 
   function list() {
-    return store.list(TABLE);
+    return store.getAll(TABLE);
   }
 
   function get(id) {
@@ -14,7 +12,8 @@ module.exports = function (injectedStore) {
   }
 
   async function save(body) {
-    return await auth.signup(body);
+    console.log('guardando clotnrolador de cliente', {TABLE, body});
+    return await store.save(TABLE, body);
   }
 
   return {
