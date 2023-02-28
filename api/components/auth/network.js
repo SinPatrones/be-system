@@ -1,4 +1,3 @@
-// TIENE LAS RUTAS DEL SERVICIO PARA USUARIOS
 const express = require('express');
 
 const response = require('../../../network/response');

@@ -27,6 +27,7 @@ module.exports = function (injectedStore) {
         ...data,
         password: await bcrypt.hash(data.password, 5),
       }
+      console.log('------> creando usuario', newUser);
       return await store.save(TABLE, newUser);
     } catch (e) {
       console.log({error: e});
